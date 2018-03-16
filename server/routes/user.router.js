@@ -55,15 +55,23 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-// request.post(
-//   'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE',
-//   { json: { longUrl: 'http://google.com' } },
-//   function (error, response, body) {
-//       if (!error && response.statusCode == 200) {
-//           console.log(body)
-//           // response.send(200)
-//       }
-//   }
-// );
+router.post('/addUrl', (req, res) => {
+  var saveUrl = {
+    longUrl: req.body.longUrl,
+    shortUrl: req.body.shortUrl,
+    owner: req.user.id
+  }
+  console.log('new URL:', saveUrl);
+
+  pool.query('INSERT INTO urls (longurl, shorturl, owner_id) VALUES ($1, $2, $3)',
+    [saveUrl.longUrl, saveUrl.shortUrl, saveUrl.owner], (err, result) => {
+      if (err) {
+        console.log("Error inserting data: ", err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(201);
+      }
+    });
+})
 
 module.exports = router;

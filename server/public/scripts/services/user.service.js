@@ -2,7 +2,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
-  self.urlObject = {};
+  self.newUrlObject = {};
 
   self.getuser = function () {
       console.log('UserService -- getuser');
@@ -44,10 +44,23 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
     }).then(
       function (response) {
         console.log('response:', response);
-        self.urlObject.shortUrl = response.data.id;
-        self.urlObject.longUrl = response.data.longUrl;
+        self.newUrlObject.shortUrl = response.data.id;
+        self.newUrlObject.longUrl = response.data.longUrl;
         console.log('new obj:', self.urlObject);
+        self.addToDb(self.newUrlObject)
       });
   };
+
+  self.addToDb = function (url) {
+      console.log('sending to server...', url);
+      $http.post('/api/user/addUrl', url).then(function (response) {
+        console.log('success');
+        $location.path('/user');
+      },
+        function (response) {
+          console.log('error');
+          self.message = "Something went wrong. Please try again."
+        });
+    }
 
 }]);
