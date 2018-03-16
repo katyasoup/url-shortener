@@ -6,8 +6,8 @@
     
     <div class="input">
         <h2>Enter a URL to shorten:</h2>
-        <input type="text" placeholder="example.com">
-        <button class="btn btn-default" ng-model="vm.url.long" ng-click="vm.shortenUrl()">Shorten It!</button>
+        <input type="text" placeholder="example.com" ng-model="vm.longUrl">
+        <button class="btn btn-default" ng-click="vm.shortenUrl(vm.longUrl)">Shorten It!</button>
     </div>
     <div class="output">
         

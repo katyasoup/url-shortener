@@ -2,8 +2,9 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
+  self.urlObject = {};
 
-  self.getuser = function (){
+  self.getuser = function () {
       console.log('UserService -- getuser');
       $http.get('/api/user').then(function (response) {
         if (response.data.username) {
@@ -29,22 +30,24 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
       });
     };
 
-  self.shortenUrl = function () {
+  self.shortenUrl = function (url) {
     console.log('shorten it!');
-    var urlObj = {
-      longUrl: 'http://google.com'
+    self.urlObj = {
+      longUrl: url
     }
-    var jsonUrlObj = JSON.parse(urlObj)
+    console.log('here is the url you entered as an object:', self.urlObj);
 
-    $http.post(
-      'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE', 
-      jsonUrlObj).then(
-      function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-          console.log(body)
-          response.send(body)
-        }
-      }
-    );
+    $http({
+      method: 'POST',
+      url: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE',
+      data: self.urlObj
+    }).then(
+      function (response) {
+        console.log('response:', response);
+        self.urlObject.shortUrl = response.data.id;
+        self.urlObject.longUrl = response.data.longUrl;
+        console.log('new obj:', self.urlObject);
+      });
   };
+
 }]);

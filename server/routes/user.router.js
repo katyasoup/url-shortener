@@ -55,15 +55,15 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-request.post(
-  'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE',
-  { json: { longUrl: 'http://google.com' } },
-  function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-          console.log(body)
-          // response.send(200)
-      }
-  }
-);
+// request.post(
+//   'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE',
+//   { json: { longUrl: 'http://google.com' } },
+//   function (error, response, body) {
+//       if (!error && response.statusCode == 200) {
+//           console.log(body)
+//           // response.send(200)
+//       }
+//   }
+// );
 
 module.exports = router;
