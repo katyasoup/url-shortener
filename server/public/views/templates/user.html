@@ -3,4 +3,13 @@
 
     <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
     <button class="btn btn-default" ng-click="vm.userService.logout()">Log Out</button>
+    
+    <div class="input">
+        <h2>Enter a URL to shorten:</h2>
+        <input type="text" placeholder="example.com">
+        <button class="btn btn-default" ng-model="vm.url.long" ng-click="vm.shortenUrl()">Shorten It!</button>
+    </div>
+    <div class="output">
+        
+    </div>
 </div>

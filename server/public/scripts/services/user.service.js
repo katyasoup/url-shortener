@@ -1,31 +1,50 @@
-myApp.service('UserService', ['$http', '$location', function($http, $location){
+myApp.service('UserService', ['$http', '$location', function ($http, $location) {
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
 
-  self.getuser = function(){
-    console.log('UserService -- getuser');
-    $http.get('/api/user').then(function(response) {
-        if(response.data.username) {
-            // user has a curret session on the server
-            self.userObject.userName = response.data.username;
-            console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
+  self.getuser = function (){
+      console.log('UserService -- getuser');
+      $http.get('/api/user').then(function (response) {
+        if (response.data.username) {
+          // user has a curret session on the server
+          self.userObject.userName = response.data.username;
+          console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
         } else {
-            console.log('UserService -- getuser -- failure');
-            // user has no session, bounce them back to the login page
-            $location.path("/home");
+          console.log('UserService -- getuser -- failure');
+          // user has no session, bounce them back to the login page
+          $location.path("/home");
         }
-    },function(response){
-      console.log('UserService -- getuser -- failure: ', response);
-      $location.path("/home");
-    });
-  },
+      }, function (response) {
+        console.log('UserService -- getuser -- failure: ', response);
+        $location.path("/home");
+      });
+    },
 
-  self.logout = function() {
-    console.log('UserService -- logout');
-    $http.get('/api/user/logout').then(function(response) {
-      console.log('UserService -- logout -- logged out');
-      $location.path("/home");
-    });
+    self.logout = function () {
+      console.log('UserService -- logout');
+      $http.get('/api/user/logout').then(function (response) {
+        console.log('UserService -- logout -- logged out');
+        $location.path("/home");
+      });
+    };
+
+  self.shortenUrl = function () {
+    console.log('shorten it!');
+    var urlObj = {
+      longUrl: 'http://google.com'
+    }
+    var jsonUrlObj = JSON.parse(urlObj)
+
+    $http.post(
+      'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE', 
+      jsonUrlObj).then(
+      function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          console.log(body)
+          response.send(body)
+        }
+      }
+    );
   };
 }]);
