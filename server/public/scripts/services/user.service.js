@@ -54,7 +54,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
 
   self.addToDb = function (url) {
     console.log('sending to server...', url);
-    $http.post('/api/user/addUrl', url).then(function (response) {
+    $http.post('/api/url/addUrl', url).then(function (response) {
         console.log('success');
         $location.path('/user');
       },
@@ -66,7 +66,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
 
   self.getFromDb = function (id) {
     console.log('getting person ' + id + '\'s urls');
-    $http.get('/api/user/seeUrls/' + id).then(function (response) {
+    $http.get('/api/url/seeUrls/' + id).then(function (response) {
       console.log('success! here\'s the response:', response);
       
     })

@@ -3,7 +3,6 @@ const encryptLib = require('../modules/encryption');
 const userStrategy = require('../strategies/sql.localstrategy');
 const pool = require('../modules/pool.js');
 const router = express.Router();
-const request = require('request');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', (req, res) => {
@@ -54,37 +53,5 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
-
-router.post('/addUrl', (req, res) => {
-  var saveUrl = {
-    longUrl: req.body.longUrl,
-    shortUrl: req.body.shortUrl,
-    owner: req.user.id
-  }
-  console.log('new URL:', saveUrl);
-
-  pool.query('INSERT INTO urls (longurl, shorturl, owner_id) VALUES ($1, $2, $3)',
-    [saveUrl.longUrl, saveUrl.shortUrl, saveUrl.owner], (err, result) => {
-      if (err) {
-        console.log("Error inserting data: ", err);
-        res.sendStatus(500);
-      } else {
-        res.sendStatus(201);
-      }
-    });
-})
-
-router.get('/seeUrls/:id', (req, res) => {
-  pool.query('SELECT * FROM urls WHERE owner_id = $1',
-  [req.params.id], (err, result) => {
-    if (err) {
-      console.log("Error retrieving data: ", err);
-      res.sendStatus(500);
-    } else {
-      res.send(result.rows)
-
-    } 
-  });
-})
 
 module.exports = router;
