@@ -11,4 +11,9 @@ myApp.controller('UserController', ['UserService', function(UserService) {
     UserService.shortenUrl(url);
   }
 
+  self.getUrls = function(id) {
+    console.log('urls from id', id);
+    UserService.getFromDb(id)
+  }
+
   }]);

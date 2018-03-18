@@ -74,4 +74,17 @@ router.post('/addUrl', (req, res) => {
     });
 })
 
+router.get('/seeUrls/:id', (req, res) => {
+  pool.query('SELECT * FROM urls WHERE owner_id = $1',
+  [req.params.id], (err, result) => {
+    if (err) {
+      console.log("Error retrieving data: ", err);
+      res.sendStatus(500);
+    } else {
+      res.send(result.rows)
+
+    } 
+  });
+})
+
 module.exports = router;

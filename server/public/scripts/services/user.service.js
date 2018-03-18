@@ -10,7 +10,8 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
         if (response.data.username) {
           // user has a curret session on the server
           self.userObject.userName = response.data.username;
-          console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
+          self.userObject.id = response.data.id;
+          console.log('UserService -- getuser -- User Data: ', self.userObject.userName, "id:", self.userObject.id);
         } else {
           console.log('UserService -- getuser -- failure');
           // user has no session, bounce them back to the login page
@@ -46,21 +47,28 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
         console.log('response:', response);
         self.newUrlObject.shortUrl = response.data.id;
         self.newUrlObject.longUrl = response.data.longUrl;
-        console.log('new obj:', self.urlObject);
+        console.log('new obj:', self.newUrlObject);
         self.addToDb(self.newUrlObject)
       });
   };
 
   self.addToDb = function (url) {
-      console.log('sending to server...', url);
-      $http.post('/api/user/addUrl', url).then(function (response) {
+    console.log('sending to server...', url);
+    $http.post('/api/user/addUrl', url).then(function (response) {
         console.log('success');
         $location.path('/user');
       },
-        function (response) {
-          console.log('error');
-          self.message = "Something went wrong. Please try again."
-        });
-    }
+      function (response) {
+        console.log('error');
+        self.message = "Something went wrong. Please try again."
+      });
+  }
 
+  self.getFromDb = function (id) {
+    console.log('getting person ' + id + '\'s urls');
+    $http.get('/api/user/seeUrls/' + id).then(function (response) {
+      console.log('success! here\'s the response:', response);
+      
+    })
+  }
 }]);
