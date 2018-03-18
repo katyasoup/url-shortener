@@ -3,6 +3,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
   var self = this;
   self.userObject = {};
   self.newUrlObject = {};
+  self.displayUrls = {};
 
   self.getuser = function () {
       console.log('UserService -- getuser');
@@ -68,7 +69,10 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
     console.log('getting person ' + id + '\'s urls');
     $http.get('/api/url/seeUrls/' + id).then(function (response) {
       console.log('success! here\'s the response:', response);
-      
+      self.displayUrls.list = response.data
+      console.log('array:', self.displayUrls.list);
+    }).then(function () {
+
     })
   }
 }]);
