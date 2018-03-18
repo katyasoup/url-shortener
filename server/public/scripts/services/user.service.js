@@ -50,7 +50,11 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
         self.newUrlObject.longUrl = response.data.longUrl;
         console.log('new obj:', self.newUrlObject);
         self.addToDb(self.newUrlObject)
-      });
+      }).then(
+      function (response) {
+        self.getFromDb(self.userObject.id)
+        location.reload();
+      })
   };
 
   self.addToDb = function (url) {
@@ -71,8 +75,6 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
       console.log('success! here\'s the response:', response);
       self.displayUrls.list = response.data
       console.log('array:', self.displayUrls.list);
-    }).then(function () {
-
     })
   }
 }]);

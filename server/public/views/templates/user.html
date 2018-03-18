@@ -7,11 +7,11 @@
     <div class="input">
         <h2>Enter a URL to shorten:</h2>
         <input type="text" placeholder="example.com" ng-model="vm.longUrl">
-        <button class="btn btn-default" ng-click="vm.shortenUrl(vm.longUrl); vm.getUrls(vm.userObject.id) ">Shorten It!</button>
+        <button class="btn btn-default" ng-click="vm.shortenUrl(vm.longUrl, vm.userObject.id)">Shorten It!</button>
     </div>
     <div class="output" ng-init="vm.getUrls(vm.userObject.id)">
        <p ng-repeat="url in vm.displayUrls.list | orderBy: '-id'">
-        <a href="{{url.shorturl}}" target="-blank">{{url.shorturl}}</a>
+        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id)">{{url.shorturl}}</a>
        </p>
     </div>
 </div>
