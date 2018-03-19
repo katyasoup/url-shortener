@@ -17,9 +17,11 @@ myApp.controller('UserController', ['UserService', function (UserService) {
     UserService.getFromDb(id)
   }
 
-  self.tallyClicks = function(id) {
-    console.log('link you cicked has an id of', id);
-    UserService.tallyClicks(id);
+  self.tallyClicks = function(id, clickcount) {
+    var clicks = clickcount;
+    clicks++;
+    console.log('link you cicked has an id of', id, "and has been clicked", clicks, "times");
+    UserService.tallyClicks(id, clicks);
   }
 
 }]);

@@ -35,17 +35,12 @@ h2 {
 }
 
 .content {
-  padding: 2%;
+  /* padding: 2%; */
   margin: auto;
 }
 
 .welcome {
   text-align: center;
-}
-
-.navList .logout {
-  float: right;
-  color: #333333;
 }
 
 .container p {
@@ -78,15 +73,19 @@ h2 {
   border-radius: 0px;
 }
 
+.navList li {
+  float: left;
+}
+
+.navList .logout {
+  float: right;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-}
-
-.navList li {
-  float: left;
 }
 
 li a {

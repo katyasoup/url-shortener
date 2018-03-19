@@ -78,9 +78,19 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
     })
   }
 
-  self.tallyClicks = function(id) {
-console.log('object is:', this);
-
-    
+  self.tallyClicks = function (id, clicks) {
+    console.log('url id:', id, "clickTotal:", clicks);
+    $http.put('/api/url/update/' + id + "/" + clicks).then(function (response) {
+        console.log('successfully updated clicks');
+        $location.path('/user');
+      },
+      function (response) {
+        console.log('error');
+        self.message = "Something went wrong. Please try again."
+      }).then(
+      function (response) {
+        self.getFromDb(self.userObject.id)
+        location.reload();
+      });
   }
 }]);

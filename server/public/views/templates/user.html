@@ -25,12 +25,12 @@
             <tbody>
                 <tr ng-repeat="url in vm.displayUrls.list | orderBy: '-id'">
                     <td>
-                        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id)">{{url.longurl}}</a>
+                        <a href="{{url.longurl}}" target="-blank">{{url.longurl}}</a>
                     </td>
                     <td>
-                        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id)">{{url.shorturl}}</a>
+                        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id, url.clickcount)">{{url.shorturl}}</a>
                     </td>
-                    <td>{{url.createdat}}</td>
+                    <td>{{url.addedat | date:mediumDate}}</td>
                     <td>{{url.clickcount}}</td>
                 </tr>
             </tbody>
