@@ -19,6 +19,7 @@ myApp.controller('UserController', ['UserService', function (UserService) {
 
   self.tallyClicks = function(id) {
     console.log('link you cicked has an id of', id);
+    UserService.tallyClicks(id);
   }
 
 }]);

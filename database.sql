@@ -15,6 +15,6 @@ shortUrl VARCHAR,
 owner_id INT,
 FOREIGN KEY (owner_id) REFERENCES users(id)
     ON DELETE CASCADE,
-clickCount INT,
+clickCount INT DEFAULT 0,
 addedAt TIMESTAMP DEFAULT NOW()
 );

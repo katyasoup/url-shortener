@@ -1,17 +1,38 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-
-    <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="vm.userService.logout()">Log Out</button>
-    
-    <div class="input">
+    <div class="welcome">
+        <h1>Welcome, {{vm.userObject.userName}}!</h1>
         <h2>Enter a URL to shorten:</h2>
-        <input type="text" placeholder="example.com" ng-model="vm.longUrl">
-        <button class="btn btn-default" ng-click="vm.shortenUrl(vm.longUrl, vm.userObject.id)">Shorten It!</button>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="example.com" ng-model="vm.longUrl">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="vm.shortenUrl(vm.longUrl, vm.userObject.id)">Shorten It!</button>
+            </span>
+        </div>
     </div>
-    <div class="output" ng-init="vm.getUrls(vm.userObject.id)">
-       <p ng-repeat="url in vm.displayUrls.list | orderBy: '-id'">
-        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id)">{{url.shorturl}}</a>
-       </p>
+
+    <div class="content">
+        <h2>Your URLs</h2>
+        <table class="table table-striped" ng-init="vm.getUrls(vm.userObject.id)">
+            <thead>
+                <tr>
+                    <th>Original URL</th>
+                    <th>Short URL</th>
+                    <th>Created At</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="url in vm.displayUrls.list | orderBy: '-id'">
+                    <td>
+                        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id)">{{url.longurl}}</a>
+                    </td>
+                    <td>
+                        <a href="{{url.longurl}}" target="-blank" ng-click="vm.tallyClicks(url.id)">{{url.shorturl}}</a>
+                    </td>
+                    <td>{{url.createdat}}</td>
+                    <td>{{url.clickcount}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>

@@ -77,4 +77,10 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
       console.log('array:', self.displayUrls.list);
     })
   }
+
+  self.tallyClicks = function(id) {
+console.log('object is:', this);
+
+    
+  }
 }]);
