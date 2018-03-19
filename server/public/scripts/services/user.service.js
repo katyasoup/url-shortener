@@ -4,6 +4,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
   self.userObject = {};
   self.newUrlObject = {};
   self.displayUrls = {};
+  self.apiData = {};
 
   self.getuser = function () {
       console.log('UserService -- getuser');
@@ -75,6 +76,17 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
       console.log('success! here\'s the response:', response);
       self.displayUrls.list = response.data
       console.log('array:', self.displayUrls.list);
+      // self.getFromApi('https://goo.gl/MXsif')
+    })
+  }
+
+  self.getFromApi = function (url) {
+    $http.get('https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD9fvYe6EyIVzADLbTQkNBUIjLNBih_vEE&shortUrl=' + url + '&projection=full').then(function (response) {
+      console.log('response from API', response);
+      // self.apiResponseObject = response.data
+      self.apiData = response.data.analytics
+      console.log('obj:', self.apiData);
+      
     })
   }
 

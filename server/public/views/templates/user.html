@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="url in vm.displayUrls.list | orderBy: '-id'">
-                    <td>
+                    <td ng-init="vm.getFromApi(url.shorturl)">
                         <a href="{{url.longurl}}" target="-blank">{{url.longurl}}</a>
                     </td>
                     <td>

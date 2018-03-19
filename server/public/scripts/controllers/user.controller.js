@@ -6,6 +6,7 @@ myApp.controller('UserController', ['UserService', function (UserService) {
 
   self.urlObject = UserService.urlObject;
   self.displayUrls = UserService.displayUrls;
+  self.apiData = UserService.apiData;
 
   self.shortenUrl = function (url, id) {
     console.log('url is', url);
@@ -15,6 +16,10 @@ myApp.controller('UserController', ['UserService', function (UserService) {
   self.getUrls = function (id) {
     console.log('urls from id', id);
     UserService.getFromDb(id)
+  }
+
+  self.getFromApi = function (url) {
+    UserService.getFromApi(url)
   }
 
   self.tallyClicks = function(id, clickcount) {
