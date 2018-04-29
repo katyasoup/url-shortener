@@ -7,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 Required for installation:
 
 - [Node.js](https://nodejs.org/en/)
-- [PostgresSQL v9.6] (https://www.postgresql.org/download/)
+- [PostgresSQL v9.6](https://www.postgresql.org/download/)
 
 
 ### Installing
