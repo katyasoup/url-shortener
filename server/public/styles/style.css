@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  font-size: 14px;
-}
-
-.instructions .container h1 {
-  font-size: 32px;
-  font-weight: 600;
-}
-
-.instructions {
-  background-color: #333333;
-  color: #DDDDDD;
-=======
 body,
 html {
   background-color: #f2f2f2;
@@ -40,7 +23,6 @@ h2 {
 .instructions {
   background-color: #dbdbdb;
   color: #333333;
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   padding: 15px;
 }
 
@@ -52,10 +34,6 @@ h2 {
   margin-top: 10px;
 }
 
-<<<<<<< HEAD
-.container p{
-  margin-top : 14px;
-=======
 .content {
   /* padding: 2%; */
   margin: auto;
@@ -67,7 +45,6 @@ h2 {
 
 .container p {
   margin-top: 14px;
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
 }
 
 .message {
@@ -79,37 +56,23 @@ h2 {
 }
 
 .message:nth-child(odd) {
-<<<<<<< HEAD
-   background-color: #eeeeee;
-=======
   background-color: #eeeeee;
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
 }
 
 .message:nth-child(even) {
   background-color: #f8f8f8;
 }
 
-<<<<<<< HEAD
-.btn-danger{
-=======
 .btn-danger {
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   margin-left: 10px;
 }
 
 .navbar {
-<<<<<<< HEAD
-  background-color: #333333;
-=======
   background-color: #dbdbdb;
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   width: 100%;
   border-radius: 0px;
 }
 
-<<<<<<< HEAD
-=======
 .navList li {
   float: left;
 }
@@ -118,7 +81,6 @@ h2 {
   float: right;
 }
 
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
 ul {
   list-style-type: none;
   margin: 0;
@@ -126,31 +88,14 @@ ul {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-=======
 li a {
   display: block;
   color: #333333;
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  text-decoration: underline;
-  color: #eee;
-}
-=======
 li a:hover {
   text-decoration: underline;
   color: #f2f2f2;
@@ -163,4 +108,3 @@ a {
 a:visited {
   color: orchid;
 }
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f

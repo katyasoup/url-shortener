@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-myApp.controller('UserController', ['UserService', function(UserService) {
-=======
 myApp.controller('UserController', ['UserService', function (UserService) {
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   console.log('UserController created');
   var self = this;
   self.userService = UserService;
   self.userObject = UserService.userObject;
-<<<<<<< HEAD
-}]);
-=======
 
   self.urlObject = UserService.urlObject;
   self.displayUrls = UserService.displayUrls;
@@ -37,4 +30,3 @@ myApp.controller('UserController', ['UserService', function (UserService) {
   }
 
 }]);
->>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
