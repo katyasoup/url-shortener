@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body, html {
   margin: 0;
   padding: 0;
@@ -13,6 +14,33 @@ body, html {
 .instructions {
   background-color: #333333;
   color: #DDDDDD;
+=======
+body,
+html {
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto-Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: 'Roboto-Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 32px;
+}
+
+h2 {
+  font-family: 'Roboto-Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 26px;
+}
+
+.instructions {
+  background-color: #dbdbdb;
+  color: #333333;
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   padding: 15px;
 }
 
@@ -24,8 +52,22 @@ body, html {
   margin-top: 10px;
 }
 
+<<<<<<< HEAD
 .container p{
   margin-top : 14px;
+=======
+.content {
+  /* padding: 2%; */
+  margin: auto;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.container p {
+  margin-top: 14px;
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
 }
 
 .message {
@@ -37,23 +79,46 @@ body, html {
 }
 
 .message:nth-child(odd) {
+<<<<<<< HEAD
    background-color: #eeeeee;
+=======
+  background-color: #eeeeee;
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
 }
 
 .message:nth-child(even) {
   background-color: #f8f8f8;
 }
 
+<<<<<<< HEAD
 .btn-danger{
+=======
+.btn-danger {
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   margin-left: 10px;
 }
 
 .navbar {
+<<<<<<< HEAD
   background-color: #333333;
+=======
+  background-color: #dbdbdb;
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   width: 100%;
   border-radius: 0px;
 }
 
+<<<<<<< HEAD
+=======
+.navList li {
+  float: left;
+}
+
+.navList .logout {
+  float: right;
+}
+
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
 ul {
   list-style-type: none;
   margin: 0;
@@ -61,6 +126,7 @@ ul {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 li {
   float: left;
 }
@@ -68,13 +134,33 @@ li {
 li a {
   display: block;
   color: white;
+=======
+li a {
+  display: block;
+  color: #333333;
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+=======
+li a:hover {
+  text-decoration: underline;
+  color: #f2f2f2;
+}
+
+a {
+  color: teal;
+}
+
+a:visited {
+  color: orchid;
+}
+>>>>>>> 39eb6b9354881e2874099291089010dee01b8c1f
