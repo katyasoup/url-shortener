@@ -25,7 +25,7 @@ app.use('/api/user', userRouter);
 // Serve static files
 app.use(express.static('server/public'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 /** Listen * */
 app.listen(PORT, () => {
